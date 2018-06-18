@@ -1,6 +1,9 @@
 #coding: utf-8
 
 import heapq
+import random
+
+random.seed(1)
 
 def inicializa(grafo, fonte):
     p = {} # peso
@@ -35,3 +38,20 @@ def dijkPrep(grafo):
 
 def makeZero(grafo):
     return [[0 for i in range(len(grafo))] for j in range(len(grafo))]
+
+def showPathFloy(p, i, j):
+    i,j = int(i), int(j)
+    if(i==j):
+      print(i,)
+    elif(p[i][j] == -float('Inf')):
+      print(i,'-',j)
+    else:
+      showPathFloy(p, i, p[i][j]);
+      print(j,)
+
+def gb(tam):
+    return [[random.randint(1,100) for i in range(tam)] for j in range(tam)]
+
+def gd(tam):
+    grafo = {i:{j:random.randint(1,100) for j in range(tam)}for i in range(tam)}
+    return dijkPrep(grafo)

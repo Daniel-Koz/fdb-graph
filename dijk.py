@@ -17,6 +17,7 @@ def dijkstrALG(grafo, fonte):
                    d[vizi_id] = d[u_no] + vizi_dist
                    heapq.heappush(Q, [d[vizi_id], vizi_id])
                    a[vizi_id] = u_no
+    #retorna distâncias, atecedências, existência de aresta neg
     return d, a, None
 
 def dijkstra(grafo, fonte):

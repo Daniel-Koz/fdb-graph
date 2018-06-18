@@ -13,5 +13,5 @@ def bellman_ford(grafo, fonte):
         for v in grafo[u]:
             if p[v] > p[u] + grafo[u][v]:
                 return None, None, 1
-
+    #retorna distâncias, antecessores, existência de ciclo negativo
     return p, a, None
