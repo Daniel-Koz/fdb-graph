@@ -30,17 +30,12 @@ def haveNeg(grafo):
     return None
 
 def bellPrep(grafo):
-	mount = []
-	tdic = {}
 	grafoD = {}
+	tdic = {}
 	for line in list(grafo.keys()):
 		for item in grafo[line]:
-			mount.append({item[0]:item[1]})
-		for proximo in mount:
-			for keyi in proximo:
-				tdic[keyi] = proximo[keyi]
+			tdic[item[0]] = item[1]
 		grafoD[line] = tdic
-		mount = []
 		tdic = {}
 	return grafoD
 
