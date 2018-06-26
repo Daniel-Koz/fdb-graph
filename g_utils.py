@@ -29,12 +29,20 @@ def haveNeg(grafo):
                     return 1
     return None
 
-def dijkPrep(grafo):
-    keys = list(grafo.keys())
-    grafoR = {}
-    for i in range(len(keys)):
-        grafoR[keys[i]] =  list(grafo.get(keys[i]).items())
-    return grafoR
+def bellPrep(grafo):
+	mount = []
+	tdic = {}
+	grafoD = {}
+	for line in list(grafo.keys()):
+		for item in grafo[line]:
+			mount.append({item[0]:item[1]})
+		for proximo in mount:
+			for keyi in proximo:
+				tdic[keyi] = proximo[keyi]
+		grafoD[line] = tdic
+		mount = []
+		tdic = {}
+	return grafoD
 
 def makeZero(grafo):
     return [[0 for i in range(len(grafo))] for j in range(len(grafo))]
@@ -53,5 +61,4 @@ def gb(tam):
     return [[random.randint(1,100) for i in range(tam)] for j in range(tam)]
 
 def gd(tam):
-    grafo = {i:{j:random.randint(1,100) for j in range(tam)}for i in range(tam)}
-    return dijkPrep(grafo)
+    return {i:[(j,random.randint(1,100)) for j in range(tam)]for i in range(tam)}

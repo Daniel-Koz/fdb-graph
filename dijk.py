@@ -21,8 +21,7 @@ def dijkstrALG(grafo, fonte):
     return d, a, None
 
 def dijkstra(grafo, fonte):
-    grafoC = dijkPrep(grafo)
-    if haveNeg(grafoC):
+    if haveNeg(grafo):
         return None, None, 1
     else:
-        return dijkstrALG(grafoC, fonte)
+        return dijkstrALG(grafo, fonte)
